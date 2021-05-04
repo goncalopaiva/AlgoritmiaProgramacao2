@@ -2,7 +2,13 @@ package edu.ufp.inf.lp2._project;
 
 import java.util.Objects;
 
+/**
+ * Classe representativa de um objeto região
+ */
 public class Regiao {
+    /**
+     * Nome da região
+     */
     private String nome;
     private int nCaches;
 

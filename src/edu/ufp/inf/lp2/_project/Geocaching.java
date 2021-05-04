@@ -1,6 +1,7 @@
 package edu.ufp.inf.lp2._project;
 
 import edu.princeton.cs.algs4.*;
+import org.junit.jupiter.engine.Constants;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,13 +12,21 @@ import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.Scanner;
 
+//TODO - Diagrama UML
+//TODO - Criar graph
+//TODO - Ordenar na listagem de utilizadores
+//TODO - Criar listagem das outras classes
+//TODO - Remover e editar as outras classes
+//TODO - Pesquisas
+//TODO - Documentação
+
 public class Geocaching {
 
     private static Scanner in;
     Hashtable<Integer, User> users = new Hashtable<>();
     Hashtable<String, Hashtable<String, Cache>> regioesComCaches = new Hashtable<>();
-    Graph graph;
     Hashtable<String, TravelBug> travelBugs = new Hashtable<>();
+
 
     public void carregarInfo(String filename) throws FileNotFoundException {
         in = new Scanner(new File(filename + ".txt"));
@@ -26,6 +35,13 @@ public class Geocaching {
             String[] info = linha.trim().split(",");
             int nUsers = Integer.parseInt(info[0].trim());
             lerUsers(nUsers);
+
+            ////////////////////////////////
+            break;
+            ////////////////////////////////
+
+
+            /*
 
             // Avançar linha
             linha = in.nextLine();
@@ -47,8 +63,11 @@ public class Geocaching {
 
             int nTravelBugs = Integer.parseInt(info[0].trim());
             lerTravelBugs(nTravelBugs);
+*/
         }
     }
+
+    /////////////////////////////////////////USERS
 
     private void lerUsers(int n) {
         for (int i = 0; i < n; i++) {
@@ -74,6 +93,44 @@ public class Geocaching {
         }
     }
 
+    public void listUsers(/*Hashtable<Integer, User> users*/) {
+        System.out.println("******** LISTA DE UTILIZADORES ********");
+        for (User user : users.values()) {
+            System.out.print(user.toString());
+        }
+    }
+
+    public User findUser(int id){
+        for (User user : users.values()) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public void editUser(int id, String nome, String tipo) {
+        //System.out.println("editUser()");
+        User user = findUser(id);
+        if (user == null) {
+            System.out.println("Error finding user.");
+            return;
+        }
+        if (!user.getNome().equals(nome) && !nome.equals("")) {
+            user.setNome(nome);
+        }
+        if (!user.getTipo().equals(tipo) && !tipo.equals("")) {
+            user.setTipo(tipo);
+        }
+    }
+
+    public void removeUser(int id) {
+        users.remove(id);
+    }
+
+
+    /////////////////////////////////////////REGIÕES
+
     private void lerRegioes(int n) {
         for (int i = 0; i < n; i++) {
             String[] linha;
@@ -83,6 +140,8 @@ public class Geocaching {
             lerCaches(regiao, nCaches);
         }
     }
+
+    /////////////////////////////////////////CACHES
 
     private void lerCaches(Regiao regiao, int n) {
         for (int i = 0; i < n; i++) {
@@ -116,17 +175,7 @@ public class Geocaching {
     }
 
 
-    private void lerLigacoes(int n) {
-       for(int i = 0; i < n; i++){
-           String[] linha;
-           linha = in.nextLine().trim().split(",");
-           Cache c1 = getCacheByID(linha[0].trim());
-           Cache c2 = getCacheByID(linha[1].trim());
-
-    }
-
-}
-
+    /////////////////////////////////////////TRAVELBUGS
 
     private void lerTravelBugs(int n) {
         for (int i = 0; i < n; i++) {
@@ -139,6 +188,58 @@ public class Geocaching {
         }
     }
 
+    public void addTravelBug(TravelBug travelBug) {
+        String id = travelBug.getId();
+        if (!travelBugs.containsKey(id)) {
+            travelBugs.put(id, travelBug);
+        }
+    }
+
+    public void listTravelBugs() {
+        System.out.println("******** LISTA DE TRAVELBUGS ********");
+        for (TravelBug travelBug : travelBugs.values()) {
+            System.out.println(travelBug.toString());
+        }
+    }
+
+    public TravelBug findTravelBug(String id) {
+        for (TravelBug travelBug : travelBugs.values()) {
+            if (travelBug.getId().equals(id)) {
+                return travelBug;
+            }
+        }
+        return null;
+    }
+
+    public void editTravelBug(String id, String nomeUser) {
+        TravelBug travelBug = findTravelBug(id);
+        if (travelBug == null) {
+            System.out.println("Error finding travel bug.");
+            return;
+        }
+        if (!travelBug.getNomeUser().equals(nomeUser) && !nomeUser.equals("")) {
+            travelBug.setNomeUser(nomeUser);
+        }
+    }
+
+    public void removeTravelBug(String id) {
+        travelBugs.remove(id);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private void lerLigacoes(int n) {
+       for(int i = 0; i < n; i++){
+           String[] linha;
+           linha = in.nextLine().trim().split(",");
+           Cache c1 = getCacheByID(linha[0].trim());
+           Cache c2 = getCacheByID(linha[1].trim());
+
+        }
+    }
+
+
     private Cache getCacheByID(String id) {
         for (Hashtable<String, Cache> caches : regioesComCaches.values()) {
             for (Cache cache : caches.values()) {
@@ -150,12 +251,6 @@ public class Geocaching {
         return null;
     }
 
-    public void listUsers(/*Hashtable<Integer, User> users*/) {
-        System.out.println("ID \t\t\t NOME \t\t\t TIPO\n");
-        for (User user : users.values()) {
-            System.out.println(user.toString());
-        }
-    }
 
 
 }

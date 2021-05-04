@@ -1,5 +1,5 @@
 package edu.ufp.inf.lp2._test;
-
+/*
 import edu.ufp.inf.lp2._project.Cache;
 import edu.ufp.inf.lp2._project.Geocaching;
 import edu.ufp.inf.lp2._project.TravelBug;
@@ -59,3 +59,4 @@ class GeocachingTest {
         assertEquals(nTravelBugsExpected, nTravelBugs);
     }
 }
+*/
