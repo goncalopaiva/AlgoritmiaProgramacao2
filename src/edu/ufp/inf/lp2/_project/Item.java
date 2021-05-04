@@ -1,28 +1,42 @@
 package edu.ufp.inf.lp2._project;
 
-import String;
+import java.util.Objects;
 
-public abstract class Item extends TravelBug {
+public abstract class Item {
+    private String nome;
+    private static final String NOME_POR_OMISSAO = "";
 
-  public String nome;
+    public Item(String nome) {
+        this.nome = nome;
+    }
 
-  
-  public void addItem() {
-  }
+    public Item() {
+        this.nome = NOME_POR_OMISSAO;
+    }
 
-  public void removeItem() {
-  }
+    public String getNome() {
+        return nome;
+    }
 
-  public void editItem() {
-  }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-  public void listItens() {
-  }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item)) return false;
+        Item item = (Item) o;
+        return Objects.equals(getNome(), item.getNome());
+    }
 
-  public void uploadItem() {
-  }
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome());
+    }
 
-  public void downloadItem() {
-  }
-
+    @Override
+    public String toString() {
+        return String.format("Nome do item: %s\n", this.nome);
+    }
 }
