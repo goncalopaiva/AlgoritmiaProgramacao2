@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Classe representativa de um objeto região
  */
-public class Regiao {
+public class Regiao implements Comparable<Regiao> {
     /**
      * Nome da região
      */
@@ -56,7 +56,12 @@ public class Regiao {
 
     @Override
     public String toString() {
-        return String.format("Nome: %s\n" +
-                "Número de caches: %d\n", this.nome, this.nCaches);
+        return String.format("Nome: %s" +
+                "Número de caches: %d", this.nome, this.nCaches);
+    }
+
+    @Override
+    public int compareTo(Regiao o) {
+        return this.nome.compareTo(o.getNome());
     }
 }
