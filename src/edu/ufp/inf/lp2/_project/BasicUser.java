@@ -10,4 +10,8 @@ public class BasicUser extends User{
         super();
     }
 
+    @Override
+    public int compareTo(User o) {
+        return 0;
+    }
 }

@@ -130,6 +130,24 @@ public class Cache {
         return nomesObjetos;
     }
 
+    public void addItem(Item item) {
+        historicoItens.add(item);
+    }
+
+    public void removeItem(Item item) {
+        historicoItens.remove(item);
+    }
+
+    public Item findItem(String item) {
+        for(Item itens : historicoItens) {
+            if (itens.getNome().equals(item)) {
+                return itens;
+            }
+        }
+        return null;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -151,4 +169,5 @@ public class Cache {
                 "Número de objetos: %d\n" +
                 "Nomes dos objetos: %s\n", this.id, this.latitude, this.longitude, this.nObjetos, this.nomesObjetos);
     }
+
 }

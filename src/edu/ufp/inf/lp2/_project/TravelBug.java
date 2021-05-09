@@ -1,5 +1,6 @@
 package edu.ufp.inf.lp2._project;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class TravelBug extends Item {
@@ -7,6 +8,7 @@ public class TravelBug extends Item {
     private String nomeUser;
     private Cache cacheInicial;
     private Cache cacheFinal;
+    private ArrayList<Cache> historicoLocalizacoes = new ArrayList<>();
 
     private static final String ID_POR_OMISSAO = "";
     private static final String NOME_USER_POR_OMISSAO = "";
@@ -57,6 +59,22 @@ public class TravelBug extends Item {
         this.cacheFinal = cacheFinal;
     }
 
+    public ArrayList<Cache> getHistoricoLocalizacoes() {
+        return historicoLocalizacoes;
+    }
+
+    public void setHistoricoLocalizacoes(ArrayList<Cache> historicoLocalizacoes) {
+        this.historicoLocalizacoes = historicoLocalizacoes;
+    }
+
+    public void addLocalizacao(Cache cache) {
+        historicoLocalizacoes.add(cache);
+    }
+
+    public int getNLocalizacoes() {
+        return historicoLocalizacoes.size();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,9 +91,9 @@ public class TravelBug extends Item {
 
     @Override
     public String toString() {
-        return String.format("ID: %s\n" +
-                "Nome de Utilizador: %s\n" +
-                "domain.Cache Inicial: %s\n" +
-                "domain.Cache Final: %s\n", this.id, this.nomeUser, this.cacheInicial, this.cacheFinal);
+        return String.format("ID: %s \t" +
+                "Nome de Utilizador: %s \t" +
+                "Cache Inicial: %s \t" +
+                "Cache Final: %s\n", this.id, this.nomeUser, this.cacheInicial, this.cacheFinal);
     }
 }
