@@ -25,18 +25,34 @@ public class Regiao implements Comparable<Regiao> {
         this.nCaches = N_CACHES_POR_OMISSAO;
     }
 
+    /**
+     * get name
+     * @return
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * set name
+     * @param nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * get number of caches
+     * @return
+     */
     public int getnCaches() {
         return nCaches;
     }
 
+    /**
+     * set number of caches
+     * @param nCaches
+     */
     public void setnCaches(int nCaches) {
         this.nCaches = nCaches;
     }

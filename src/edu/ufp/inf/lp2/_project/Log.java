@@ -24,26 +24,50 @@ public class Log {
         this.user = USER_POR_OMISSAO;
     }
 
+    /**
+     * get message
+     * @return
+     */
     public String getMensagem() {
         return mensagem;
     }
 
+    /**
+     * set message
+     * @param mensagem
+     */
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
 
+    /**
+     * get date
+     * @return
+     */
     public Date getData() {
         return data;
     }
 
+    /**
+     * set date
+     * @param data
+     */
     public void setData(Date data) {
         this.data = data;
     }
 
+    /**
+     * get user
+     * @return
+     */
     public BasicUser getUser() {
         return user;
     }
 
+    /**
+     * set user
+     * @param user
+     */
     public void setUser(BasicUser user) {
         this.user = user;
     }

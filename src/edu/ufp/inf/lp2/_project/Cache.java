@@ -62,82 +62,161 @@ public class Cache {
         this.historicoLogs = new ArrayList<>();
     }
 
+    /**
+     * Get cache id
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Set cache id
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Get cache latitude
+     * @return
+     */
     public float getLatitude() {
         return latitude;
     }
 
+    /**
+     * Set cache latitude
+     * @param latitude
+     */
     public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
+    /**
+     * Get cache type
+     * @return
+     */
     public String getTipo() {
         return tipo;
     }
 
+    /**
+     * Set cache type
+     * @param tipo
+     */
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public String getDificuldade() {
-        return dificuldade;
-    }
+    /**
+     * Get cache dificulty
+     * @return
+     */
+    public String getDificuldade() {return dificuldade;}
 
+    /**
+     * Set cache dificulty
+     * @param dificuldade
+     */
     public void setDificuldade(String dificuldade) {
         this.dificuldade = dificuldade;
     }
 
+    /**
+     * Get cache region
+     * @return
+     */
     public Regiao getRegiao() {
         return regiao;
     }
 
+    /**
+     * Set cache region
+     * @param regiao
+     */
     public void setRegiao(Regiao regiao) {
         this.regiao = regiao;
     }
 
+    /**
+     * get Cache longitude
+     * @return
+     */
     public float getLongitude() {
         return longitude;
     }
 
+    /**
+     * Set cache longitude
+     * @param longitude
+     */
     public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
+    /**
+     * Get number of objects in a cache
+     * @return
+     */
     public int getnObjetos() {
         return nObjetos;
     }
 
+    /**
+     * Set cache number o objects
+     * @param nObjetos
+     */
     public void setnObjetos(int nObjetos) {
         this.nObjetos = nObjetos;
     }
 
+    /**
+     * get item history of a cache
+     * @return
+     */
     public ArrayList<Item> getHistoricoItens() {
         return historicoItens;
     }
 
+    /**
+     * get log history of a cache
+     * @return
+     */
     public ArrayList<Log> getHistoricoLogs() {
         return historicoLogs;
     }
 
+    /**
+     * Get names of objets in a cache
+     * @return
+     */
     public ArrayList<String> getNomesObjetos() {
         return nomesObjetos;
     }
 
+    /**
+     * Add new item to a cache
+     * @param item
+     */
     public void addItem(Item item) {
         historicoItens.add(item);
     }
 
+    /**
+     * Remove an item
+     * @param item
+     */
     public void removeItem(Item item) {
         historicoItens.remove(item);
     }
 
+    /**
+     * Find item
+     * @param item
+     * @return
+     */
     public Item findItem(String item) {
         for(Item itens : historicoItens) {
             if (itens.getNome().equals(item)) {

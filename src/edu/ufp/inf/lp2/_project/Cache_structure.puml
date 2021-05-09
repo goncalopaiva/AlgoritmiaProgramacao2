@@ -1,0 +1,298 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": ""
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": false,
+    "hideInterfaceCalls": false, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false // root node is included
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "edu.ufp.inf.lp2._project.Cache"
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_115711 { 
+   	label=ufp
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_511169166 { 
+   	label=inf
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   BasicUser1500283186[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BasicUser</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Cache1500283186[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Cache</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   dificuldade: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   historicoItens: ArrayList&lt;Item&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   historicoLogs: ArrayList&lt;Log&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   latitude: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   longitude: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nObjetos: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nomesObjetos: ArrayList&lt;String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   regiao: Regiao [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tipo: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addItem(item: Item)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findItem(item: String): Item</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeItem(item: Item)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Geocaching1500283186[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Geocaching</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   nCachesVisitadas: BST&lt;Integer, Integer&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   regioesComCaches: Hashtable&lt;Regiao, Hashtable&lt;String, Cache&gt;&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   travelBugs: Hashtable&lt;String, TravelBug&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   users: Hashtable&lt;Integer, User&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- addCacheRegiao(regiao: Regiao, cache: Cache)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addCacheVisitada(idUser: int, idCache: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addNewUser(user: User)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addRegiao(regiao: Regiao)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addTravelBug(travelBug: TravelBug)</TD></TR>
+<TR><TD ALIGN="LEFT" >- addUser(user: User)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ carregarInfo(filename: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ editRegiao(regiao: Regiao, nome: String, nCaches: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ editTravelBug(id: String, nomeUser: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ editUser(id: int, nome: String, tipo: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findCache(id: String): Cache</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findItemCache(nomeItem: String): Cache</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findRegiao(nome: String): Regiao</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findTravelBug(id: String): TravelBug</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findUser(id: int): User</TD></TR>
+<TR><TD ALIGN="LEFT" >- getCacheByID(id: String): Cache</TD></TR>
+<TR><TD ALIGN="LEFT" >+ guardarInfo(filename: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ guardarUsers(filename: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >- lerCaches(regiao: Regiao, n: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- lerLigacoes(n: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- lerRegioes(n: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- lerTravelBugs(n: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- lerUsers(n: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ listCaches()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ listCachesInRegiao(regiao: Regiao)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ listItems()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ listRegioes()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ listTravelBugs()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ listUsers()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ moverTravelBug(idTravelbug: String, idCacheFinal: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ pesquisaCachesPremiumComObjeto()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ pesquisaCachesUserGlobal(user: User)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ pesquisaCachesUserRegiao(user: User, nomeRegiao: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ pesquisaTopUtilizador()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ pesquisaTravelbugMaisLocalizacoes()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ pesquisaUserTop5()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ pesquisaUsersVisitaramCache(idCache: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeCache(id: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeRegiao(nomeRegiao: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeTravelBug(id: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeUser(id: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Item1500283186[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Item</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   nome: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Log1500283186[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Log</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   data: Date [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mensagem: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   user: BasicUser [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PremiumUser1500283186[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PremiumUser</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Regiao1500283186[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Regiao</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   nCaches: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nome: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ compareTo(o: Regiao): int</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+TravelBug1500283186[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TravelBug</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   cacheFinal: Cache [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   cacheInicial: Cache [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   historicoLocalizacoes: ArrayList&lt;Cache&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nomeUser: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addLocalizacao(cache: Cache)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+User1500283186[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)User</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   cachesNaoVisitadas: ArrayList&lt;String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   cachesVisitadas: ArrayList&lt;String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nome: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tipo: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+BasicUser1500283186 -> PremiumUser1500283186[arrowhead=none, arrowtail=empty, dir=both];
+Cache1500283186 -> Item1500283186[label="historicoItens
+[0..*]"];
+Cache1500283186 -> Log1500283186[label="historicoLogs
+[0..*]"];
+Cache1500283186 -> Regiao1500283186[label="regiao
+[0..1]"];
+Geocaching1500283186 -> Cache1500283186[label="regioesComCaches
+[0..*]"];
+Geocaching1500283186 -> TravelBug1500283186[label="travelBugs
+[0..*]"];
+Item1500283186 -> TravelBug1500283186[arrowhead=none, arrowtail=empty, dir=both];
+Log1500283186 -> BasicUser1500283186[label="user
+[0..1]"];
+TravelBug1500283186 -> Cache1500283186[label="cacheFinal
+[0..1]"];
+TravelBug1500283186 -> Cache1500283186[label="cacheInicial
+[0..1]"];
+TravelBug1500283186 -> Cache1500283186[label="historicoLocalizacoes
+[0..*]"];
+User1500283186 -> BasicUser1500283186[arrowhead=none, arrowtail=empty, dir=both];
+    
+}
+@enduml

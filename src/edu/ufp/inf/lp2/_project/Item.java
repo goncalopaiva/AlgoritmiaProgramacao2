@@ -14,10 +14,18 @@ public abstract class Item {
         this.nome = NOME_POR_OMISSAO;
     }
 
+    /**
+     * get item name
+     * @return
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * set item name
+     * @param nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }

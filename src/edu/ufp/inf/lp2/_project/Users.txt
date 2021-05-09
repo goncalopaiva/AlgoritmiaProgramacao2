@@ -1,6 +1,0 @@
-Nome1,12/01/1993,username1,password1,Basic
-Nome2,14/09/2003,username2,password2,Basic
-Nome3,18/10/1992,username3,password3,Basic
-Nome4,29/12/1982,username4,password4,Basic
-Nome5,18/01/1999,admin,admin123,Admin
-Nome6,19/04/2008,premiumuser,premiumuser123,Premium

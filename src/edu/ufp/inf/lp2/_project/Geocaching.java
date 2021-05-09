@@ -597,6 +597,11 @@ public class Geocaching {
 
     /////////////////////////////////////////PESQUISAS/////////////////////////////////////////
 
+    /**
+     * pesquisar caches por utilizador e por regiao
+     * @param user
+     * @param nomeRegiao
+     */
     public void pesquisaCachesUserRegiao(User user, String nomeRegiao) {
         System.out.println("\n********************************* CACHES VISITADAS POR " + user.getNome() + " EM " + nomeRegiao +" *********************************");
         int count = 0;
@@ -616,6 +621,10 @@ public class Geocaching {
         System.out.println("************************************************ TOTAL: " + count + " ***********************************************");
     }
 
+    /**
+     * pesquisar caches por utilizador
+     * @param user
+     */
     public void pesquisaCachesUserGlobal(User user) {
         System.out.println("\n********************************* CACHES VISITADAS POR " + user.getNome() + " *********************************");
         int count = 0;
@@ -626,6 +635,9 @@ public class Geocaching {
         System.out.println("****************************************** TOTAL: " + count + " **********************************************");
     }
 
+    /**
+     * pesquisar caches premium com pelo menos um objeto
+     */
     public void pesquisaCachesPremiumComObjeto() {
         System.out.println("\n********************************* CACHES PREMIUM COM PELO MENOS UM OBJETO *********************************");
         int count = 0;
@@ -644,6 +656,10 @@ public class Geocaching {
         System.out.println("************************************************* TOTAL: " + count + " *************************************************");
     }
 
+    /**
+     * pesquisar utilizadores que visitaram uma determinada cache
+     * @param idCache
+     */
     public void pesquisaUsersVisitaramCache(String idCache) {
         System.out.println("\n********************************* UTILIZADORES QUE VISITARAM " + idCache + "*********************************");
         int count=0;
@@ -656,6 +672,9 @@ public class Geocaching {
         System.out.println("******************************************* TOTAL: " + count + " ********************************");
     }
 
+    /**
+     * pesquisa do utilizador com maior numero de caches visitadas
+     */
     public void pesquisaTopUtilizador() {
         User user1 = null;
         int maior = 0;
@@ -671,6 +690,11 @@ public class Geocaching {
         );
     }
 
+    /**
+     * adicionar uma cache visitada
+     * @param idUser
+     * @param idCache
+     */
     public void addCacheVisitada (int idUser, String idCache) {
 
         User user = findUser(idUser);
@@ -711,6 +735,9 @@ public class Geocaching {
 
     }
 
+    /**
+     * pesquisar travelbug com mais localizacoes
+     */
     public void pesquisaTravelbugMaisLocalizacoes() {
         System.out.println("\n********************************* TRAVELBUG COM MAIS LOCALIZAÇÕES *********************************");
         int maior = 0;
@@ -725,7 +752,9 @@ public class Geocaching {
         System.out.println("***************************************************************************************************");
     }
 
-
+    /**
+     * pesquisar top5 de utilizadores com maior numero de caches
+     */
     public void pesquisaUserTop5(){
         System.out.println("NUmero caches visitadas: " + nCachesVisitadas.keys());
         for (int i=0; i<nCachesVisitadas.size(); i++) {
