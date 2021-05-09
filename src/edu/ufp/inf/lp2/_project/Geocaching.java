@@ -1,6 +1,7 @@
 package edu.ufp.inf.lp2._project;
 
 import edu.princeton.cs.algs4.BST;
+import edu.princeton.cs.algs4.RedBlackBST;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -644,7 +645,7 @@ public class Geocaching {
     }
 
     public void pesquisaUsersVisitaramCache(String idCache) {
-        System.out.println("\n********************************* UTILIZADORES QUE VISITARAM " + idCache + " *********************************");
+        System.out.println("\n********************************* UTILIZADORES QUE VISITARAM " + idCache + "*********************************");
         int count=0;
         for (User user : users.values()) {
             if (user.cachesVisitadas.contains(idCache)) {
@@ -726,11 +727,10 @@ public class Geocaching {
 
 
     public void pesquisaUserTop5(){
-        System.out.println("\n****************************************** TOP-5 USERS *****************************************");
+        System.out.println("NUmero caches visitadas: " + nCachesVisitadas.keys());
         for (int i=0; i<nCachesVisitadas.size(); i++) {
-            System.out.println("User: " + nCachesVisitadas.select(i) + "\t\tNº CACHES: " + nCachesVisitadas.get(i));
+            System.out.println("User ID: " + nCachesVisitadas.select(i) + "\t\tNº CACHES: " + nCachesVisitadas.get(i));
         }
-        System.out.println("***************************************************************************************************");
     }
 
 }
