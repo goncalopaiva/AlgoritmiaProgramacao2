@@ -7,7 +7,7 @@ import edu.ufp.inf.lp2._project.User;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
-import java.util.Hashtable;
+import java.util.Hashtagoncalopaivable;
 
 import static org.junit.Assert.assertEquals;
 
